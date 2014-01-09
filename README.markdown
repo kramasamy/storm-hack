@@ -22,29 +22,26 @@ First, you will need a laptop that connect to internet using Wi-FI. In the lapto
 make sure that you have `java` and `git` installed and in your user's `PATH`.  
 
 Second, you will need a Twitter account. If you do not have a twitter account, please 
-create one. From your account follow
+create one. From your account, follow
 
     @karthikz, @sanjeevrk, @staneja, @challenger_nik, @jason_j, @ankitoshniwal
 
-You will be using twitter direct messaging to get help from remote Storm Experts! 
+You will be using twitter direct messaging capability to get help from remote Storm Experts! 
 
-
-Next, make sure you have the storm-hack code available on your machine.  Git/GitHub beginners may want to use the
-following command to download the latest storm-hack code and change to the new directory that contains the downloaded
-code.
+Third, make sure you have the storm-hack code available on your machine.  Git/GitHub beginners 
+may want to use the following command to download the latest storm-hack code and change to the 
+new directory that contains the downloaded code.
 
     $ git clone git://github.com/kramasamy/storm-hack.git && cd storm-hack
 
 
-## storm-hack overview
+## Overview
 
-storm-hack contains a variety of examples of using Storm.  If this is your first time working with Storm, check out
-these topologies first:
+storm-hack contains a variety of examples of using Storm.  If this is your first time working 
+with Storm, check out these topologies first:
 
 1. [ExclamationTopology](src/jvm/storm/starter/ExclamationTopology.java):  Basic topology written in all Java
-2. [WordCountTopology](src/jvm/storm/starter/WordCountTopology.java):  Basic topology that makes use of multilang by
-   implementing one bolt in Python
-3. [ReachTopology](src/jvm/storm/starter/ReachTopology.java): Example of complex DRPC on top of Storm
+2. [WordCountTopology](src/jvm/storm/starter/WordCountTopology.java):  Basic topology for counting words all written in Java
 
 After you have familiarized yourself with these topologies, take a look at the other topopologies in
 [src/jvm/storm/starter/](src/jvm/storm/starter/) such as [RollingTopWords](src/jvm/storm/starter/RollingTopWords.java)
