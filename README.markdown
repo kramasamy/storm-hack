@@ -24,7 +24,7 @@ make sure that you have `java` and `git` installed and in your user's `PATH`.
 Second, you will need a Twitter account. If you do not have a twitter account, please 
 create one. From your account follow
 
-$ @karthikz, @sanjeevrk, @staneja, @challenger_nik, @jason_j, @ankitoshniwal
+    @karthikz, @sanjeevrk, @staneja, @challenger_nik, @jason_j, @ankitoshniwal
 
 You will be using twitter direct messaging to get help from remote Storm Experts! 
 
