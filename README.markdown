@@ -18,14 +18,16 @@ Table of Contents
 
 ## Prerequisites
 
-First, if you do not have a twitter account, please create one. From your account follow
+First, you will need a laptop that connect to internet using Wi-FI. In the laptop,
+make sure that you have `java` and `git` installed and in your user's `PATH`.  
 
-@karthikz, @sanjeevrk, @staneja, @challenger_nik, @jason_j, @ankitoshniwal
+Second, you will need a Twitter account. If you do not have a twitter account, please 
+create one. From your account follow
+
+$ @karthikz, @sanjeevrk, @staneja, @challenger_nik, @jason_j, @ankitoshniwal
 
 You will be using twitter direct messaging to get help from remote Storm Experts! 
 
-Second, you will need a laptop that connect to internet using Wi-FI. In the laptop,
-make sure that you have `java` and `git` installed and in your user's `PATH`.  
 
 Next, make sure you have the storm-hack code available on your machine.  Git/GitHub beginners may want to use the
 following command to download the latest storm-hack code and change to the new directory that contains the downloaded
