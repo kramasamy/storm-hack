@@ -28,7 +28,14 @@ create one. From your Twitter account, follow the Storm experts
 
 You will be using twitter direct messaging capability to get help from them. 
 
-Third, make sure you have the storm-hack code available on your machine.  Git/GitHub beginners 
+Third, if you need to use Twitter firehose/Tweet stream for your idea, 
+create a set of credentials by following the instructions at 
+
+    https://dev.twitter.com/discussions/631
+
+Fourth, partner with someone to form a group. We encourage 2/3 students per group. 
+
+Finally, make sure you have the storm-hack code available on your machine.  Git/GitHub beginners 
 may want to use the following command to download the latest storm-hack code and change to the 
 new directory that contains the downloaded code.
 
