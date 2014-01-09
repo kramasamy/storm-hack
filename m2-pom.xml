@@ -3,12 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>storm.starter</groupId>
-  <artifactId>storm-starter</artifactId>
+  <artifactId>storm-hack</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>storm-starter</name>
-  <url>https://github.com/nathanmarz/storm-starter</url>
+  <name>storm-hack</name>
+  <url>https://github.com/kramasamy/storm-hack</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
