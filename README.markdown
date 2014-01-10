@@ -21,12 +21,12 @@ Table of Contents
 First, you will need a laptop that connect to internet using Wi-FI. In the laptop,
 make sure that you have `java` and `git` installed and in your user's `PATH`.  
 
-Second, you will need a Twitter account. If you do not have a twitter account, please 
+Second, you will need a Twitter account. If you do not have a Twitter account, please 
 create one. From your Twitter account, follow the Storm experts
 
     @karthikz, @sanjeevrk, @staneja, @challenger_nik, @jason_j, @ankitoshniwal
 
-You will be using twitter direct messaging capability to get help from them. 
+You will be using Twitter direct messaging capability to get help from them. 
 
 Third, if you need to use Twitter firehose/Tweet stream for your idea, 
 create a set of credentials by following the instructions at 
