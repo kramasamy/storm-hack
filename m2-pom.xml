@@ -73,17 +73,21 @@
       <artifactId>guava</artifactId>
       <version>15.0</version>
     </dependency>
+    <dependency>
+      <groupId>org.twitter4j</groupId>
+      <artifactId>twitter4j-core</artifactId>
+      <version>[3.0,)</version>
+    </dependency>
+    <dependency>
+      <groupId>org.twitter4j</groupId>
+      <artifactId>twitter4j-stream</artifactId>
+      <version>[3.0,)</version>
+    </dependency>
   </dependencies>
 
   <build>
     <sourceDirectory>src/jvm</sourceDirectory>
     <testSourceDirectory>test/jvm</testSourceDirectory>
-    <resources>
-      <resource>
-        <directory>${basedir}/multilang</directory>
-      </resource>
-    </resources>
-
     <plugins>
       <!--
         Bind the maven-assembly-plugin to the package phase
