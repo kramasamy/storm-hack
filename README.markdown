@@ -39,7 +39,7 @@ Finally, make sure you have the storm-hack code available on your machine.  Git/
 may want to use the following command to download the latest storm-hack code and change to the 
 new directory that contains the downloaded code.
 
-    $ git clone git://github.com/kramasamy/storm-hack.git && cd storm-hack
+    $ git clone https://github.com/kramasamy/storm-hack.git && cd storm-hack
 
 
 ## Overview

@@ -14,7 +14,7 @@
                    [commons-collections/commons-collections "3.2.1"]
                  ]
 
-  :profiles {:dev
+  :profiles {:provided
               {:dependencies [[storm "0.9.0.1"]
                               [org.clojure/clojure "1.4.0"]
                               [org.testng/testng "6.8.5"]
