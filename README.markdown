@@ -66,18 +66,6 @@ If you want to learn more about how Storm works, please head over to the
 [Maven](http://maven.apache.org/) is an alternative to Leiningen.  Install Maven (preferably version 3.x) by following
 the [Maven installation instructions](http://maven.apache.org/download.cgi).
 
-
-## Running topologies with Maven
-
-storm-hack contains [m2-pom.xml](m2-pom.xml) which can be used with Maven using the `-f` option. For example, to
-compile and run `WordCountTopology` in local mode, use the command:
-
-    $ mvn -f m2-pom.xml compile exec:java -Dstorm.topology=storm.starter.WordCountTopology
-
-You can also run clojure topologies with Maven:
-
-    $ mvn -f m2-pom.xml compile exec:java -Dstorm.topology=storm.starter.clj.word_count
-
 ## Packaging storm-hack for use on a Storm cluster
 
 You can package a jar suitable for submitting to a Storm cluster with the command:
@@ -87,6 +75,11 @@ You can package a jar suitable for submitting to a Storm cluster with the comman
 This will package your code and all the non-Storm dependencies into a single "uberjar" at the path
 `target/storm-hack-{version}-jar-with-dependencies.jar`.
 
+## Submitting your jobs to the Storm cluster
+
+After compiling your package, you can submit your job to real cluster using the following command
+
+    $ storm jar -c nimbus.host=<name-of-the-host> <jar-name> storm.starter.WordCountTopology <topology-name>
 
 ## Running unit tests
 
