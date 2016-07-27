@@ -1,11 +1,12 @@
 package storm.starter;
 
+import java.util.Map;
+
 import backtype.storm.Config;
 import backtype.storm.LocalCluster;
 import backtype.storm.StormSubmitter;
 import backtype.storm.task.OutputCollector;
 import backtype.storm.task.TopologyContext;
-import backtype.storm.testing.TestWordSpout;
 import backtype.storm.topology.OutputFieldsDeclarer;
 import backtype.storm.topology.TopologyBuilder;
 import backtype.storm.topology.base.BaseRichBolt;
@@ -14,9 +15,6 @@ import backtype.storm.tuple.Tuple;
 import backtype.storm.tuple.Values;
 import backtype.storm.utils.Utils;
 import storm.starter.spout.TwitterSampleSpout;
-
-
-import java.util.Map;
 
 /**
  * This is a basic example of a Storm topology.

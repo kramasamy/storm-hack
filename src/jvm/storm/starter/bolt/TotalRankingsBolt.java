@@ -1,7 +1,9 @@
 package storm.starter.bolt;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import backtype.storm.tuple.Tuple;
-import org.apache.log4j.Logger;
 import storm.starter.tools.Rankings;
 
 /**
@@ -13,7 +15,7 @@ import storm.starter.tools.Rankings;
 public final class TotalRankingsBolt extends AbstractRankerBolt {
 
   private static final long serialVersionUID = -8447525895532302198L;
-  private static final Logger LOG = Logger.getLogger(TotalRankingsBolt.class);
+  private static final Logger LOG = LogManager.getLogger(TotalRankingsBolt.class);
 
   public TotalRankingsBolt() {
     super();

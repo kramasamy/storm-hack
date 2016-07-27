@@ -1,5 +1,7 @@
 package storm.starter;
 
+import java.util.Map;
+
 import backtype.storm.Config;
 import backtype.storm.LocalCluster;
 import backtype.storm.StormSubmitter;
@@ -13,8 +15,6 @@ import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Tuple;
 import backtype.storm.tuple.Values;
 import backtype.storm.utils.Utils;
-
-import java.util.Map;
 
 /**
  * This is a basic example of a Storm topology.

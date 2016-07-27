@@ -1,11 +1,11 @@
 package storm.starter.tools;
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Lists;
-
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
+
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
 
 public class Rankings implements Serializable {
 

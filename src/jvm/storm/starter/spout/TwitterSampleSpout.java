@@ -11,14 +11,13 @@ import backtype.storm.topology.base.BaseRichSpout;
 import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Values;
 import backtype.storm.utils.Utils;
-
-import twitter4j.conf.ConfigurationBuilder;
-import twitter4j.TwitterStream;
-import twitter4j.TwitterStreamFactory;
+import twitter4j.StallWarning;
 import twitter4j.Status;
 import twitter4j.StatusDeletionNotice;
 import twitter4j.StatusListener;
-import twitter4j.StallWarning;
+import twitter4j.TwitterStream;
+import twitter4j.TwitterStreamFactory;
+import twitter4j.conf.ConfigurationBuilder;
 
 public class TwitterSampleSpout extends BaseRichSpout 
 {

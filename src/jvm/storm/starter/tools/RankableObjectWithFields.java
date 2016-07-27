@@ -1,11 +1,12 @@
 package storm.starter.tools;
 
-import backtype.storm.tuple.Tuple;
+import java.io.Serializable;
+import java.util.List;
+
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
-import java.io.Serializable;
-import java.util.List;
+import backtype.storm.tuple.Tuple;
 
 /**
  * This class wraps an objects and its associated count, including any additional data fields.

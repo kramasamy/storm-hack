@@ -1,6 +1,9 @@
 package storm.starter;
 
 import backtype.storm.Config;
+import backtype.storm.generated.AlreadyAliveException;
+import backtype.storm.generated.InvalidTopologyException;
+import backtype.storm.generated.NotAliveException;
 import backtype.storm.testing.TestWordSpout;
 import backtype.storm.topology.TopologyBuilder;
 import backtype.storm.tuple.Fields;
@@ -51,7 +54,7 @@ public class RollingTopWords {
     builder.setBolt(totalRankerId, new TotalRankingsBolt(TOP_N)).globalGrouping(intermediateRankerId);
   }
 
-  public void run() throws InterruptedException {
+  public void run() throws InterruptedException, InvalidTopologyException, AlreadyAliveException, NotAliveException {
     StormRunner.runTopologyLocally(builder.createTopology(), topologyName, topologyConfig, runtimeInSeconds);
   }
 
