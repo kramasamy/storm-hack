@@ -1,7 +1,10 @@
 package storm.starter.bolt;
 
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import backtype.storm.tuple.Tuple;
-import org.apache.log4j.Logger;
 import storm.starter.tools.Rankable;
 import storm.starter.tools.RankableObjectWithFields;
 
@@ -14,7 +17,7 @@ import storm.starter.tools.RankableObjectWithFields;
 public final class IntermediateRankingsBolt extends AbstractRankerBolt {
 
   private static final long serialVersionUID = -1369800530256637409L;
-  private static final Logger LOG = Logger.getLogger(IntermediateRankingsBolt.class);
+  private static final Logger LOG = LogManager.getLogger(IntermediateRankingsBolt.class);
 
   public IntermediateRankingsBolt() {
     super();

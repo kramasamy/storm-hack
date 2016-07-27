@@ -1,5 +1,12 @@
 package storm.starter.bolt;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import backtype.storm.Config;
 import backtype.storm.task.OutputCollector;
 import backtype.storm.task.TopologyContext;
@@ -8,14 +15,9 @@ import backtype.storm.topology.base.BaseRichBolt;
 import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Tuple;
 import backtype.storm.tuple.Values;
-import org.apache.log4j.Logger;
 import storm.starter.tools.NthLastModifiedTimeTracker;
 import storm.starter.tools.SlidingWindowCounter;
 import storm.starter.util.TupleHelpers;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
 
 /**
  * This bolt performs rolling counts of incoming objects, i.e. sliding window based counting.
@@ -39,7 +41,7 @@ import java.util.Map.Entry;
 public class RollingCountBolt extends BaseRichBolt {
 
   private static final long serialVersionUID = 5537727428628598519L;
-  private static final Logger LOG = Logger.getLogger(RollingCountBolt.class);
+  private static final Logger LOG = LogManager.getLogger(RollingCountBolt.class);
   private static final int NUM_WINDOW_CHUNKS = 5;
   private static final int DEFAULT_SLIDING_WINDOW_IN_SECONDS = NUM_WINDOW_CHUNKS * 60;
   private static final int DEFAULT_EMIT_FREQUENCY_IN_SECONDS = DEFAULT_SLIDING_WINDOW_IN_SECONDS / NUM_WINDOW_CHUNKS;
