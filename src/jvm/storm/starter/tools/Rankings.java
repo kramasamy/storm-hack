@@ -1,11 +1,10 @@
 package storm.starter.tools;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
-
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.Lists;
 
 public class Rankings implements Serializable {
 
@@ -13,7 +12,7 @@ public class Rankings implements Serializable {
   private static final int DEFAULT_COUNT = 10;
 
   private final int maxSize;
-  private final List<Rankable> rankedItems = Lists.newArrayList();
+  private final List<Rankable> rankedItems = new ArrayList<Rankable>();
 
   public Rankings() {
     this(DEFAULT_COUNT);
@@ -58,11 +57,11 @@ public class Rankings implements Serializable {
    * @return a somewhat defensive copy of ranked items
    */
   public List<Rankable> getRankings() {
-    List<Rankable> copy = Lists.newLinkedList();
+    List<Rankable> copy = new LinkedList<Rankable>();
     for (Rankable r: rankedItems) {
       copy.add(r.copy());
     }
-    return ImmutableList.copyOf(copy);
+    return copy;
   }
 
   public void updateWith(Rankings other) {

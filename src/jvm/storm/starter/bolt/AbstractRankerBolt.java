@@ -30,7 +30,7 @@ public abstract class AbstractRankerBolt extends BaseBasicBolt {
 
   private final int emitFrequencyInSeconds;
   private final int count;
-  private final Rankings rankings;
+  private Rankings rankings;
 
   public AbstractRankerBolt() {
     this(DEFAULT_COUNT, DEFAULT_EMIT_FREQUENCY_IN_SECONDS);
