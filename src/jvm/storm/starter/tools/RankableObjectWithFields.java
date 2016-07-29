@@ -1,9 +1,11 @@
 package storm.starter.tools;
 
 import java.io.Serializable;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
 import backtype.storm.tuple.Tuple;
@@ -20,7 +22,13 @@ public class RankableObjectWithFields implements Rankable, Serializable {
 
   private final Object obj;
   private final long count;
-  private final ImmutableList<Object> fields;
+  private final List<Object> fields;
+
+  public RankableObjectWithFields() {
+    this.obj = null;
+    this.count = 0;
+    this.fields = null;
+  }
 
   public RankableObjectWithFields(Object obj, long count, Object... otherFields) {
     if (obj == null) {
@@ -31,8 +39,8 @@ public class RankableObjectWithFields implements Rankable, Serializable {
     }
     this.obj = obj;
     this.count = count;
-    fields = ImmutableList.copyOf(otherFields);
-
+    fields = new LinkedList<Object>();
+    Collections.addAll(fields, otherFields);
   }
 
   /**
@@ -125,7 +133,7 @@ public class RankableObjectWithFields implements Rankable, Serializable {
    */
   @Override
   public Rankable copy() {
-    List<Object> shallowCopyOfFields = ImmutableList.copyOf(getFields());
+    List<Object> shallowCopyOfFields = new LinkedList<Object>(getFields());
     return new RankableObjectWithFields(getObject(), getCount(), shallowCopyOfFields);
   }
 

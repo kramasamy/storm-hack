@@ -34,6 +34,7 @@ public final class TotalRankingsBolt extends AbstractRankerBolt {
     Rankings rankingsToBeMerged = (Rankings) tuple.getValue(0);
     super.getRankings().updateWith(rankingsToBeMerged);
     super.getRankings().pruneZeroCounts();
+    System.out.println(super.getRankings());
   }
 
   @Override

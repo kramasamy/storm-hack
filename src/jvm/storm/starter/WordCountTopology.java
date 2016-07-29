@@ -1,5 +1,6 @@
 package storm.starter;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -47,7 +48,7 @@ public class WordCountTopology {
     @Override
     public void nextTuple() {
       String[] list = {"Jack", "Mary", "Jill", "McDonald"};
-      Utils.sleep(1000);
+      Utils.sleep(10);
       int nextInt = rnd.nextInt(list.length);
       collector.emit(new Values(list[nextInt]));
     }
@@ -59,20 +60,33 @@ public class WordCountTopology {
   static class ConsumerBolt extends BaseRichBolt {
     private OutputCollector collector;
     private Map<String, Integer> countMap;
+    private int tupleCount;
+    private String taskName;
+
     public void prepare(Map map, TopologyContext topologyContext, OutputCollector outputCollector) {
       collector = outputCollector;
       countMap = new HashMap<String, Integer>();
+      tupleCount = 0;
+      taskName = topologyContext.getThisComponentId() + "_" + topologyContext.getThisTaskId();
     }
 
     @Override
     public void execute(Tuple tuple) {
       String key = tuple.getString(0);
+
+      tupleCount += 1;
+      if (tupleCount % 200 == 0) {
+        tupleCount = 0;
+        System.out.println(taskName + ":" + Arrays.toString(countMap.entrySet().toArray()));
+      }
+
       if (countMap.get(key) == null) {
         countMap.put(key, 1);
       } else {
         Integer val = countMap.get(key);
         countMap.put(key, ++val);
       }
+
       collector.ack(tuple);
     }
 
@@ -85,14 +99,11 @@ public class WordCountTopology {
 
     TopologyBuilder builder = new TopologyBuilder();
 
-    builder.setSpout("spout", new WordSpout(), 5);
-
-    // builder.setBolt("split", new SplitSentence(), 8).shuffleGrouping("spout");
-    builder.setBolt("count", new ConsumerBolt(), 15).fieldsGrouping("spout", new Fields("word"));
+    builder.setSpout("word", new WordSpout(), 2);
+    builder.setBolt("count", new ConsumerBolt(), 3).fieldsGrouping("word", new Fields("word"));
 
     Config conf = new Config();
     conf.setDebug(true);
-
 
     if (args != null && args.length > 0) {
       conf.setNumWorkers(3);

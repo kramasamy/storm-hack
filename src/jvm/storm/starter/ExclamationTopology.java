@@ -23,24 +23,26 @@ public class ExclamationTopology {
 
   public static class ExclamationBolt extends BaseRichBolt {
     OutputCollector _collector;
+    String myId;
 
     @Override
     public void prepare(Map conf, TopologyContext context, OutputCollector collector) {
       _collector = collector;
+      myId = context.getThisComponentId();
     }
 
     @Override
     public void execute(Tuple tuple) {
-      _collector.emit(tuple, new Values(tuple.getString(0) + "!!!"));
+      String msg = tuple.getString(0) + "!!!";
+      _collector.emit(tuple, new Values(msg));
       _collector.ack(tuple);
+      System.out.println(myId + ": " + msg);
     }
 
     @Override
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
       declarer.declare(new Fields("word"));
     }
-
-
   }
 
   public static void main(String[] args) throws Exception {

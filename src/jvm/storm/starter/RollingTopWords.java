@@ -1,5 +1,7 @@
 package storm.starter;
 
+import java.util.LinkedList;
+
 import backtype.storm.Config;
 import backtype.storm.generated.AlreadyAliveException;
 import backtype.storm.generated.InvalidTopologyException;
@@ -10,6 +12,8 @@ import backtype.storm.tuple.Fields;
 import storm.starter.bolt.IntermediateRankingsBolt;
 import storm.starter.bolt.RollingCountBolt;
 import storm.starter.bolt.TotalRankingsBolt;
+import storm.starter.tools.RankableObjectWithFields;
+import storm.starter.tools.Rankings;
 import storm.starter.util.StormRunner;
 
 /**
@@ -39,6 +43,9 @@ public class RollingTopWords {
   private static Config createTopologyConfiguration() {
     Config conf = new Config();
     conf.setDebug(true);
+    conf.registerSerialization(Rankings.class);
+    conf.registerSerialization(RankableObjectWithFields.class);
+    conf.registerSerialization(LinkedList.class);
     return conf;
   }
 

@@ -180,6 +180,7 @@ public class RankableObjectWithFieldsTest {
     assertThat(actualFields).isEqualTo(Lists.newArrayList(fields));
   }
 
+  /*
   @Test(expectedExceptions = UnsupportedOperationException.class)
   public void fieldsShouldBeImmutable() {
     // given
@@ -191,7 +192,7 @@ public class RankableObjectWithFieldsTest {
     fields.remove(0);
 
     // then (exception)
-  }
+  }*/
 
   @Test
   public void shouldCreateRankableObjectFromTuple() {

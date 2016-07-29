@@ -49,7 +49,7 @@ public class RollingCountBolt extends BaseRichBolt {
       "Actual window length is %d seconds when it should be %d seconds"
           + " (you can safely ignore this warning during the startup phase)";
 
-  private final SlidingWindowCounter<Object> counter;
+  private SlidingWindowCounter<Object> counter;
   private final int windowLengthInSeconds;
   private final int emitFrequencyInSeconds;
   private OutputCollector collector;
@@ -62,8 +62,6 @@ public class RollingCountBolt extends BaseRichBolt {
   public RollingCountBolt(int windowLengthInSeconds, int emitFrequencyInSeconds) {
     this.windowLengthInSeconds = windowLengthInSeconds;
     this.emitFrequencyInSeconds = emitFrequencyInSeconds;
-    counter = new SlidingWindowCounter<Object>(deriveNumWindowChunksFrom(this.windowLengthInSeconds,
-        this.emitFrequencyInSeconds));
   }
 
   private int deriveNumWindowChunksFrom(int windowLengthInSeconds, int windowUpdateFrequencyInSeconds) {
@@ -73,6 +71,9 @@ public class RollingCountBolt extends BaseRichBolt {
   @SuppressWarnings("rawtypes")
   @Override
   public void prepare(Map stormConf, TopologyContext context, OutputCollector collector) {
+    counter = new SlidingWindowCounter<Object>(deriveNumWindowChunksFrom(this.windowLengthInSeconds,
+        this.emitFrequencyInSeconds));
+
     this.collector = collector;
     lastModifiedTracker = new NthLastModifiedTimeTracker(deriveNumWindowChunksFrom(this.windowLengthInSeconds,
         this.emitFrequencyInSeconds));

@@ -23,14 +23,17 @@ public class TweetTopology {
 
   public static class StdoutBolt extends BaseRichBolt {
     OutputCollector _collector;
+    String taskName;
 
     @Override
     public void prepare(Map conf, TopologyContext context, OutputCollector collector) {
       _collector = collector;
+      taskName = context.getThisComponentId() + "_" + context.getThisTaskId();
     }
 
     @Override
     public void execute(Tuple tuple) {
+      System.out.println(tuple.getValue(0));
       _collector.emit(tuple, new Values(tuple.getValue(0)));
       _collector.ack(tuple);
     }
@@ -47,7 +50,7 @@ public class TweetTopology {
     builder.setSpout("word", 
            new TwitterSampleSpout("[Your customer key]",
                  "[Your secret key]",
-                 "[Your access token]", 
+                 "[Your access token]",
                  "[Your access secret]"), 1);
 
     builder.setBolt("stdout", new StdoutBolt(), 3).shuffleGrouping("word");
